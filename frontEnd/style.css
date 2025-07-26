@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Tinos", serif;
+    font-family: "Tinos", serif;
+    font-weight: 800;
+    font-style: normal;
+    border-radius: 0.5rem;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #E9E3DF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#inpt{
+    padding: 10px;
+    width: 20rem;
+}
+
+#inpt>input{
+    background-color: transparent;
+    outline: none;
+    height: 2rem;
+    box-shadow: 0cm 4px 1px #b9b5b3;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 0% 7%;
+    letter-spacing: 0.1em;
+    border: none;
+    color: darkgreen;
+}
+#inpt>input:last-child{
+    background-color: white;
+    width: max-content;
+}
+#qr>img{
+    width: 25rem;
+    height: 25rem;
+    border: 2px solid black;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgb(23, 23, 35) inset;
+}
+
+.dnldFeature{
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: max-content;
+    gap: 10px;
+    /* opacity: 0.5; */
+    box-shadow: 2px 2px 7px #9d2944;
+}
+
+#btnDnld{
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    padding: 0% 5%;
+    box-shadow: -2px 2px 2px black;
+    border: 1px solid black;
+}
+
+.dnldBtn{
+    width: 8rem;
+}
+
+
+.dnldImg, .dnldPdf{
+    padding: 4px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    
+}
+
+footer{
+    background-color: #465C88;
+}
+
+footer{
+    position: absolute;
+    top: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    border-radius: 0;
+    
+}
+.pwa{
+    background-color: transparent;
+    font-size: xx-large;
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #E9E3DF;
+}
+.pwa>p{
+    width: 70%;
+    display: inline-block;
+    
+}
+
+#getApp{
+    background-color: #E9E3DF;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 2px 2px 15px black;
+}
+
+@media only screen and (max-width: 700px) {
+    body{
+        background-color: powderblue;
+        width: 100vw;
+        height: 100vh;
+    }
+    li{
+        text-transform: uppercase;
+        list-style-type: none;
+        width: 100vw;
+        text-align: center;
+        font-size: xx-large;
+        color: rgb(189, 242, 238);
+        letter-spacing: 0.2rem;
+        -webkit-text-stroke: 1px black;
+
+        font-family: "Caveat Brush", cursive;
+        font-weight: 900;
+        font-style: normal;
+    }
+    #qr>img{
+        width: 80%;
+        height: 60%;
+        border: 2px solid black;
+        padding: 20px;
+        box-shadow: 2px 2px 10px rgb(23, 23, 35) inset;
+    }
+}
