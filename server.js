@@ -8,23 +8,17 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
 // Serve static files from frontEnd folder
-app.use(express.static(path.join(__dirname, '../frontEnd')));
+app.use(express.static(path.join(__dirname, 'frontEnd')));  // ✅ Fixed path
 
 // QR history storage
 let qrHistory = [];
 
-// Home route (optional if using static index.html)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontEnd/index.html'));
-});
-
-// Generate QR code
+// API route: Generate QR code
 app.post('/generate', async (req, res) => {
   const { text } = req.body;
 
@@ -37,18 +31,19 @@ app.post('/generate', async (req, res) => {
     qrHistory.push({ text, qrDataUrl, timestamp: new Date() });
     res.json({ qrCode: qrDataUrl });
   } catch (err) {
+    console.error('QR Generation Error:', err);  // ✅ Log error
     res.status(500).json({ error: 'Failed to generate QR Code' });
   }
 });
 
-// Return QR code history (optional feature)
+// API route: Get QR history
 app.get('/history', (req, res) => {
   res.json(qrHistory);
 });
 
-//wilcard api endpoints
+// ✅ Wildcard route: must be last
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontEnd/index.html'));
+  res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
 });
 
 // Start server
