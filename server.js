@@ -41,10 +41,10 @@ app.get('/history', (req, res) => {
   res.json(qrHistory);
 });
 
-// ✅ Wildcard route: must be last
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
-});
+// // ✅ Wildcard route: must be last
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
+// });
 
 // Start server
 app.listen(port, () => {
