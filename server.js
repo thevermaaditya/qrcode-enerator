@@ -16,11 +16,6 @@ app.use(bodyParser.json());
 // Serve static files from frontEnd folder
 app.use(express.static(path.join(__dirname, '../frontEnd')));
 
-//for cors
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontEnd/index.html'));
-});
-
 // QR history storage
 let qrHistory = [];
 
@@ -49,6 +44,11 @@ app.post('/generate', async (req, res) => {
 // Return QR code history (optional feature)
 app.get('/history', (req, res) => {
   res.json(qrHistory);
+});
+
+//wilcard api endpoints
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontEnd/index.html'));
 });
 
 // Start server
