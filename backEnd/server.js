@@ -3,9 +3,11 @@ const qr = require('qrcode');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 // Middlewares
 app.use(cors());
@@ -13,6 +15,11 @@ app.use(bodyParser.json());
 
 // Serve static files from frontEnd folder
 app.use(express.static(path.join(__dirname, '../frontEnd')));
+
+//for cors
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontEnd/index.html'));
+});
 
 // QR history storage
 let qrHistory = [];
